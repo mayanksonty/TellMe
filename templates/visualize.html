@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+    <div class="panel-header">
+        <div class="header text-center">
+            <h2 class="title">Visualize</h2>
+            <p class="category">Visualize your data in an interactive way.</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="card card-chart animated fadeInUp">
+                    <div class="card-header">
+                        <h5 class="card-category">Scatter Plot</h5>
+                        <h4 class="card-title">Temperature vs Water Consumption</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-5" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card card-chart animated fadeInUp">
+                    <div class="card-header">
+                        <h5 class="card-category">Timeline Series</h5>
+                        <h4 class="card-title">Statewise Water Consumption</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-4" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card card-chart animated fadeInUp">
+                    <div class="card-header">
+                        <h5 class="card-category">Bar Chart</h5>
+                        <h4 class="card-title">Crop Distribution</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-3" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card card-chart animated fadeInUp">
+                    <div class="card-header">
+                        <h5 class="card-category">Doughnut</h5>
+                        <h4 class="card-title">Source Distribution</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-1" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6" style="display: none;">
+                <div class="card card-chart animated fadeInUp">
+                    <div class="card-header">
+                        <h5 class="card-category">Pie Chart</h5>
+                        <h4 class="card-title">Two</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-2" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+        </div>
+    </div>
+
+{% endblock %}

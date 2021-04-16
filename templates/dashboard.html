@@ -1,0 +1,251 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="panel-header panel-header-lg">
+        <canvas id="bigDashboardChart"></canvas>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-4 animated fadeInUp">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">User Stats</h5>
+                        <h4 class="card-title">{% for total in data.usersActive %} {{ total[0] }} {% endfor %} Users</h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Active Users
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 animated fadeInUp">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Farms</h5>
+                        <h4 class="card-title">{% for total in data.totalFarms %} {{ total[0] }} {% endfor %} Farms
+
+                            </h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Total Farms in India
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 animated fadeInUp">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Prepare Analytical Database</h5>
+                        <h4 class="card-title">
+                            <div class="form-group" style="padding-top: 8px;">
+                                <button type="submit" class="form-control bg-success text-white" onclick="prepareDB()">Prepare</button>
+                            </div>
+                        </h4>
+                    </div>
+                    <div class="card-footer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 animated fadeInUp">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Water Consumption Over Time (Monthly)</h5>
+                        <h4 class="card-title">Water Consumption</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="lineChartExample"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 animated fadeInUp">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Over the Week</h5>
+                        <h4 class="card-title">App Usage</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 animated fadeInUp">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Analyst</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Contact No
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Jitendra Nirnejak
+                                        </td>
+                                        <td>
+                                            7869290297
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Ankush Arudkar
+                                        </td>
+                                        <td>
+                                            7000510344
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Mayank Verma
+                                        </td>
+                                        <td>
+                                            9340925385
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nishant Sahu
+                                        </td>
+                                        <td>
+                                            8770440426
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 animated fadeInUp">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Irrigation Sources</h5>
+                        <h4 class="card-title">Major Irrigation Sources</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-1" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 animated fadeInUp">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Bar Graph</h5>
+                        <h4 class="card-title">Crop Distribution</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-3" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 animated fadeInUp" style="display: none;">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Doughnut</h5>
+                        <h4 class="card-title">One</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-2" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="display: none;">
+            <div class="col-lg-4 col-md-6 animated fadeInUp">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Scatter Plot</h5>
+                        <h4 class="card-title">Four</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-5" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 animated fadeInUp">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Bar</h5>
+                        <h4 class="card-title">Three</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dashboardChart-4" width="undefined" height="undefined"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="now-ui-icons arrows-1_refresh-69"></i> Last 7 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function prepareDB(){
+            $.get("/prepareDB")
+                .done(function(data){
+                    showNotification('top', 'center', 'success', 'Analytical Database Prepared Successfully')
+                })
+                .fail(function( jqXHR, textStatus, errorThrown ) {
+                    showNotification('top','center','danger','no internet connection')
+                });;
+        }
+    </script>
+{% endblock %}

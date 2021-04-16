@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+  <div class="panel-header">
+        <div class="header text-center">
+            <h2 class="title">Geospatial Maps</h2>
+            <p class="category">Visualize your data on Geo Maps</p>
+        </div>
+    </div>
+  <div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card animated fadeInUp">
+                <div class="card-header ">
+                    Water Usage (Statewise)
+                </div>
+                <div class="card-body">
+                  <center>
+                    <img src="{{ url_for('static', filename='img/india.svg') }}"  alt="">
+                  </center>
+                  {{ data }}
+                </div>
+            </div>
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card animated fadeInUp">
+                <div class="card-header ">
+                    Google Maps
+                </div>
+                <div class="card-body">
+                    <div id="map" class="map"></div>
+                     <script>
+                      function initMap() {
+                        var uluru = {lat: 25.363, lng: 81.044};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                          zoom: 6,
+                          center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                          position: uluru,
+                          map: map
+                        });
+                      }
+                    </script>
+                    <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC90Jzbgl1gtkE7AaE3nQL4HTK_wYfaSFQ&callback=initMap">
+                    </script>
+                </div>
+            </div>
+        </div>   
+    </div>
+  </div>
+
+{% endblock %}

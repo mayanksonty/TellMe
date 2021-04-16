@@ -1,0 +1,31 @@
+<script>
+    $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/tellme.js
+       tellme.initDashboardPageCharts();
+    });
+
+    function showDiv(dir){
+        $.get("/"+dir)
+            .done(function(data){
+                // Changing Content
+                $(".content").html(data);
+                
+                // Activating the right SideBar Button
+                $("li").removeClass('active');
+                $("#"+dir).addClass('active');
+                
+                // Setting the Heading of the Section
+                $(".navbar-brand").html(dir);
+
+                // changing the size of the Header and Removing the Chart
+                if($("#bigDashboardChart").length){
+                    $(".panel-header").html('');
+                    $(".panel-header").removeClass('panel-header-lg');
+                    $(".panel-header").html("<div class=\"header text-center\"><h2 class=\"title\" style=\"text-transform: uppercase;\">"+dir+"</h2><p class=\"category\">Hello</p></div>");
+                }
+            })
+            .fail(function( jqXHR, textStatus, errorThrown ) {
+                showNotification('top','center','danger','no internet connection')
+            });;
+    }
+</script>
